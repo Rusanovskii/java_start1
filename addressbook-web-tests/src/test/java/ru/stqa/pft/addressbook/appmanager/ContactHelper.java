@@ -3,7 +3,9 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.stqa.pft.addressbook.models.ContactData;
 
+import static org.openqa.selenium.By.name;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class ContactHelper extends HelperBase {
@@ -15,20 +17,22 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactCreation() {
-        wd.findElement(By.linkText("add new")).click();
+
+        click(By.linkText("add new"));
     }
 
     public void submitContactCreation() {
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactForm() {
-        type(By.name("firstname"), "Boris");
-        type(By.name("lastname"), "Krasava");
-        type(By.name("nickname"), "Krasava.B");
-        type(By.name("mobile"), "+7 999 888 77 66");
-        type(By.name("email"), "1@1.ru");
-        type(By.name("address2"), "Moscow never sleep");
+    public void fillContactForm(ContactData contactData) {
+        type(name("firstname"), contactData.getName());
+        type(name("lastname"), contactData.getLastname());
+        type(name("nickname"), contactData.getNickname());
+        type(name("mobile"), contactData.getPersonalphone());
+        type(name("email"), contactData.getMail());
+        type(name("address2"), contactData.getAddress());
     }
 
     public void type(By locator, String text) {
@@ -59,6 +63,10 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact() {
 
-        click(By.name("selected[]"));
+        click(name("selected[]"));
+    }
+
+    public void initContactModification() {
+        click(By.xpath("//img[@alt='Edit']"));
     }
 }

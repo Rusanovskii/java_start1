@@ -34,18 +34,22 @@ public class ApplicationManager {
     }
 
     public void logout() {
+
         wd.findElement(By.linkText("Logout")).click();
     }
 
     public GroupHelper getGroupHelper() {
+
         return groupHelper;
     }
 
     public ContactHelper getContactHelper() {
+
         return contactHelper;
     }
 
     public NavigationHelper getNavigationHelper() {
+
         return navigationHelper;
     }
 }

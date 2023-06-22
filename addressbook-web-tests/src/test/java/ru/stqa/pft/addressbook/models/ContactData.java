@@ -16,21 +16,27 @@ public class ContactData {
         this.mail = mail;
         this.address = address;
     }
+
     public String getName() {
         return name;
     }
+
     public String getLastname() {
         return lastname;
     }
+
     public String getNickname() {
         return nickname;
     }
+
     public String getPersonalphone() {
         return personalphone;
     }
+
     public String getMail() {
         return mail;
     }
+
     public String getAddress() {
         return address;
     }
