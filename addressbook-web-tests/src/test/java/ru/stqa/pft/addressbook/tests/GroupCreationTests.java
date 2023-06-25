@@ -11,10 +11,7 @@ public class GroupCreationTests extends TestBase {
     public void testGroupCreation(){
         setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
         app.getNavigationHelper().gotoGroupPage();
-        app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("5", "5", "5"));
-        app.getGroupHelper().submitGroupCreation();
-        app.getGroupHelper().returnToGroupPage();
+        app.getGroupHelper().createGroup(new GroupData("5", null, null));
         app.logout();
     }
 

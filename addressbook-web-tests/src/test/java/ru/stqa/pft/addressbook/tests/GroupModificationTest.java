@@ -11,6 +11,9 @@ public class GroupModificationTest extends TestBase {
     public void testGroupModification() {
         setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
         app.getNavigationHelper().gotoGroupPage();
+        if (! app.getGroupHelper().isThereAGroup()) {
+            app.getGroupHelper().createGroup(new GroupData("5", null, null));
+        }
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().fillGroupForm(new GroupData("3", "3", "3"));

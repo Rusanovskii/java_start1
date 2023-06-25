@@ -31,7 +31,7 @@ public class ApplicationManager {
             wd = new EdgeDriver();
         }
 
-        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);

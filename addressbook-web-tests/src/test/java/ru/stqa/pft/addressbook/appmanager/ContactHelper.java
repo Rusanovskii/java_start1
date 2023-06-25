@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 
 import static org.openqa.selenium.By.name;
@@ -10,6 +12,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class ContactHelper extends HelperBase {
     public boolean acceptNextAlert = true;
+    private ContactData contact;
 
     public ContactHelper(WebDriver wd) {
 
@@ -26,13 +29,19 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(name("firstname"), contactData.getName());
         type(name("lastname"), contactData.getLastname());
         type(name("nickname"), contactData.getNickname());
         type(name("mobile"), contactData.getPersonalphone());
         type(name("email"), contactData.getMail());
         type(name("address2"), contactData.getAddress());
+
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void type(By locator, String text) {
@@ -69,4 +78,21 @@ public class ContactHelper extends HelperBase {
     public void initContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
     }
+
+    public void returnToContactPage() {
+        click(By.linkText("home page"));
+        click(By.linkText("Logout"));
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(contact,true);
+        submitContactCreation();
+        returnToContactPage();
+    }
 }
+
