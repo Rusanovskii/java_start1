@@ -2,20 +2,35 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager {
-    public WebDriver wd;
+import static org.openqa.selenium.remote.BrowserType.*;
 
+public class ApplicationManager {
+    private final String browser;
+    public WebDriver wd;
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private ContactHelper contactHelper;
     private GroupHelper groupHelper;
 
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
+
     public void init() {
-        wd = new FirefoxDriver();
+        if (browser.equals(FIREFOX)) {
+            wd = new FirefoxDriver();
+        } else if (browser.equals(CHROME)) {
+            wd = new ChromeDriver();
+        } else if (browser.equals(EDGE)) {
+            wd = new EdgeDriver();
+        }
+
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
