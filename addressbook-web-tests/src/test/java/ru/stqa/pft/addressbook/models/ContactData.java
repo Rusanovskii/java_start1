@@ -7,7 +7,7 @@ public class ContactData {
     private final String personalphone;
     private final String mail;
     private final String address;
-    private final String group;
+    private  String group;
 
     public ContactData(String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
         this.name = name;

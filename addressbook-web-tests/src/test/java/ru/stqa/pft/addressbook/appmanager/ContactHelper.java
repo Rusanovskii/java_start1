@@ -12,7 +12,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class ContactHelper extends HelperBase {
     public boolean acceptNextAlert = true;
-    private ContactData contact;
+
 
     public ContactHelper(WebDriver wd) {
 
@@ -81,7 +81,6 @@ public class ContactHelper extends HelperBase {
 
     public void returnToContactPage() {
         click(By.linkText("home page"));
-        click(By.linkText("Logout"));
     }
 
     public boolean isThereAContact() {
@@ -89,10 +88,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public void createContact(ContactData contact) {
-        initContactCreation();
         fillContactForm(contact,true);
         submitContactCreation();
         returnToContactPage();
+    }
+
+    public void selectGroupByList() {
+        click(By.name("new_group"));
+        click(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
+    }
+
+    public boolean checkListOfGroups() {
+        click(By.name("new_group"));
+        return isElementPresent(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
     }
 }
 

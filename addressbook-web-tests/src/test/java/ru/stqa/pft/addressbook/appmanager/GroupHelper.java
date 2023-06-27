@@ -24,7 +24,6 @@ public class GroupHelper extends HelperBase {
 
     public void returnToGroupPage() {
         click(By.linkText("group page"));
-        click(By.linkText("Logout"));
     }
 
     public void initGroupCreation() {
@@ -60,6 +59,13 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
+    public void createGroupForContact(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        click(By.linkText("home page"));
+
+    }
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }

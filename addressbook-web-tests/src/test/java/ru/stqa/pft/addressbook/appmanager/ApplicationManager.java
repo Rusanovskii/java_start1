@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.System.setProperty;
 import static org.openqa.selenium.remote.BrowserType.*;
 
 public class ApplicationManager {
@@ -27,6 +28,7 @@ public class ApplicationManager {
             wd = new FirefoxDriver();
         } else if (browser.equals(CHROME)) {
             wd = new ChromeDriver();
+            setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
         } else if (browser.equals(EDGE)) {
             wd = new EdgeDriver();
         }
