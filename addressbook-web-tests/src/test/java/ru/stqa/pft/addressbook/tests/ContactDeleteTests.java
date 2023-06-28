@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.GroupData;
@@ -9,6 +10,7 @@ public class ContactDeleteTests extends TestBase {
   @Test
   public void testContactDelete() throws Exception {
     app.getNavigationHelper().gotoContactPage();
+    int before = app.getContactHelper().getContactCount();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().initContactCreation();
       if (!app.getContactHelper().checkListOfGroups()) {
@@ -21,6 +23,8 @@ public class ContactDeleteTests extends TestBase {
       }
       app.getContactHelper().selectContact();
       app.getContactHelper().deleteSelectedContact();
+      int after = app.getContactHelper().getContactCount();
+      Assert.assertEquals(after, before - 1);
       app.logout();
     }
   }
