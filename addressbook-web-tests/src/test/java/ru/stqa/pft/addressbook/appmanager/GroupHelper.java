@@ -48,10 +48,6 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void submitContactModification() {
-        click(By.xpath("//div[@id='content']/form/input[22]"));
-    }
-
     public void createGroup(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
@@ -59,13 +55,6 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public void createGroupForContact(GroupData group) {
-        initGroupCreation();
-        fillGroupForm(group);
-        submitGroupCreation();
-        click(By.linkText("home page"));
-
-    }
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }

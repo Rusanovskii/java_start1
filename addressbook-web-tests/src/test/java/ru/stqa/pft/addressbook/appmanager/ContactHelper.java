@@ -102,5 +102,8 @@ public class ContactHelper extends HelperBase {
         click(By.name("new_group"));
         return isElementPresent(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
     }
+    public void submitContactModification() {
+        click(By.xpath("//div[@id='content']/form/input[22]"));
+    }
 }
 
