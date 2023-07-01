@@ -1,6 +1,9 @@
 package ru.stqa.pft.addressbook.models;
 
+import java.util.Objects;
+
 public class ContactData {
+    private int id;
     private final String name;
     private final String lastname;
     private final String nickname;
@@ -9,7 +12,17 @@ public class ContactData {
     private final String address;
     private  String group;
 
-    public ContactData(String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+
+    public ContactData(int id, String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.nickname = nickname;
@@ -17,6 +30,33 @@ public class ContactData {
         this.mail = mail;
         this.address = address;
         this.group = group;
+    }
+    public ContactData(String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
+        this.id = 0;
+        this.name = name;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.personalphone = personalphone;
+        this.mail = mail;
+        this.address = address;
+        this.group = group;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastname);
     }
 
     public String getName() {
@@ -45,5 +85,13 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

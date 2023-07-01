@@ -1,10 +1,11 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.GroupData;
 
 import java.util.List;
+
+import static org.testng.Assert.assertEquals;
 
 public class GroupDeleteTests extends TestBase {
 
@@ -19,7 +20,11 @@ public class GroupDeleteTests extends TestBase {
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().getGroupList();
-        Assert.assertEquals(after.size(), before.size() - 1);
+        assertEquals(after.size(), before.size() - 1);
+
+        before.remove(before.size() -1);
+        assertEquals(before, after);
+
         app.logout();
     }
 }
