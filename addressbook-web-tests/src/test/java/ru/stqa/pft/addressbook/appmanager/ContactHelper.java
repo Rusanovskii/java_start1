@@ -3,9 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.openqa.selenium.By.name;
 import static org.testng.AssertJUnit.assertTrue;
@@ -53,6 +57,11 @@ public class ContactHelper extends HelperBase {
     public void deleteSelectedContact() {
         click(By.xpath("//input[@value='Delete']"));
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String closeAlertAndGetItsText() {
@@ -70,9 +79,8 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void selectContact() {
-
-        click(name("selected[]"));
+    public void selectContact(int index) {
+        wd.findElements(name("selected[]")).get(index).click();
     }
 
     public void initContactModification() {
@@ -107,7 +115,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public int getContactCount() {
-        return wd.findElements(By.name("entry")).size();
+        return wd.findElements(By.name("selected[]")).size();
     }
-}
+
+    public List<ContactData> getContactList() {
+            List<ContactData> contacts = new ArrayList<ContactData>();
+            List<WebElement> elements = wd.findElements(By.name("entry"));
+            for (WebElement element : elements) {
+                String name = element.getText();
+                ContactData contact = new ContactData("Boris", null, null, null, null, null, null);
+                contacts.add(contact);
+            }
+            return contacts;
+        }
+    }
+
 
