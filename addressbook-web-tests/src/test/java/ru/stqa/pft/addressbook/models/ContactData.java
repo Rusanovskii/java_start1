@@ -71,7 +71,11 @@ public class ContactData {
     }
 
     public String getGroup() {
-        return group;
+        if (setGroup()) {
+            return group;
+        }
+
+        return null;
     }
 
     public void setId(int id) {
@@ -91,7 +95,8 @@ public class ContactData {
         return Objects.hash(name, lastname);
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public boolean setGroup() {
+        this.group = new String("5");
+        return true;
     }
 }

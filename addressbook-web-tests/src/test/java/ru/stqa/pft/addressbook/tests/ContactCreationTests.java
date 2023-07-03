@@ -15,13 +15,13 @@ public class ContactCreationTests extends TestBase {
         app.getNavigationHelper().gotoContactPage();
         List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().initContactCreation();
-        if (!app.getContactHelper().checkListOfGroups()) {
+        if (app.getContactHelper().selectGroupByList() || app.getContactHelper().selectGroupByList1()) {
             app.getNavigationHelper().gotoGroupPage();
             app.getGroupHelper().createGroup(new GroupData("5", null, null));
+            app.getContactHelper().initContactCreation();
         }
-        app.getContactHelper().initContactCreation();
-        app.getContactHelper().selectGroupByList();
-        ContactData contact = new ContactData("Boris", "Krasava", "123", "+ 7 999 999 77 66", "1@1.ru", "Питер хороший город", "5");
+
+        ContactData contact = new ContactData("Boris", "Krasava", "123", "+ 7 999 999 77 66", "1@1.ru", "Питер хороший город", null);
         app.getContactHelper().createContact(contact);
         List<ContactData> after = app.getContactHelper().getContactList();
         assertEquals(after.size(), before.size()+1);

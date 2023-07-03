@@ -15,7 +15,7 @@ public class ContactModificationTest extends TestBase{
         app.getNavigationHelper().gotoContactPage();
         if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().initContactCreation();
-            if (!app.getContactHelper().checkListOfGroups()) {
+            if (app.getContactHelper().selectGroupByList() || app.getContactHelper().selectGroupByList1()) {
                 app.getNavigationHelper().gotoGroupPage();
                 app.getGroupHelper().createGroup(new GroupData("5", null, null));
                 app.getContactHelper().initContactCreation();

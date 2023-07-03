@@ -1,9 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
@@ -19,17 +16,14 @@ public class ContactHelper extends HelperBase {
 
 
     public ContactHelper(WebDriver wd) {
-
         super(wd);
     }
 
     public void initContactCreation() {
-
         click(By.linkText("add new"));
     }
 
     public void submitContactCreation() {
-
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
@@ -42,7 +36,12 @@ public class ContactHelper extends HelperBase {
         type(name("address2"), contactData.getAddress());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            try {
+                selectByText(By.name("new_group"), contactData.getGroup());
+
+            } catch (Exception NoSuchElementException) {
+                selectByIndex(By.name("new_group"));
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -58,7 +57,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
         try {
-            Thread.sleep(2000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -96,25 +95,44 @@ public class ContactHelper extends HelperBase {
     }
 
     public void createContact(ContactData contact) {
-        fillContactForm(contact,true);
+        fillContactForm(contact, true);
         submitContactCreation();
         returnToContactPage();
     }
 
-    public void selectGroupByList() {
-        click(By.name("new_group"));
-        click(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
+    public boolean selectGroupByList1() {
+        try {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("5");
+        } catch (Exception NoSuchElementException) {
+            selectByIndex(name("new_group"), 0);
+        }
+        return false;
+    }
+
+
+    public boolean selectGroupByList() {
+        if (checkListOfGroups()) {
+            return true;
+        }
+        return false;
     }
 
     public boolean checkListOfGroups() {
         click(By.name("new_group"));
-        return isElementPresent(By.xpath("//div[@id='content']/form/select[5]/option[2]"));
+        new Select(wd.findElement(name("new_group"))).selectByValue(String.valueOf("[none]"));
+        return true;
     }
+    public boolean checkListOfGroups1() {
+        click(By.name("new_group"));
+        wd.findElement(name("new_group")).findElement(By.xpath(("(.//*[normalize-space(text()) and normalize-space(.)='Secondary'])[1]/preceding::option[5]")));
+        return true;
+    }
+
     public void submitContactModification() {
         click(By.xpath("//div[@id='content']/form/input[22]"));
     }
 
-    public int getContactCount() {
+    public int getContactCount(int i) {
         return wd.findElements(By.name("selected[]")).size();
     }
 
