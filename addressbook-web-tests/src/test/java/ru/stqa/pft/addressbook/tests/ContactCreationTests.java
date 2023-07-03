@@ -20,7 +20,6 @@ public class ContactCreationTests extends TestBase {
             app.getGroupHelper().createGroup(new GroupData("5", null, null));
             app.getContactHelper().initContactCreation();
         }
-
         ContactData contact = new ContactData("Boris", "Krasava", "123", "+ 7 999 999 77 66", "1@1.ru", "Питер хороший город", null);
         app.getContactHelper().createContact(contact);
         List<ContactData> after = app.getContactHelper().getContactList();
