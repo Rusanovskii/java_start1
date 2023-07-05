@@ -3,15 +3,53 @@ package ru.stqa.pft.addressbook.models;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
-    private final String name;
-    private final String lastname;
-    private final String nickname;
-    private final String personalphone;
-    private final String mail;
-    private final String address;
-    private  String group;
+    private int id = Integer.MAX_VALUE;
+    private String name;
+    private String lastname;
+    private String nickname;
+    private String phone;
+    private String mail;
+    private String address;
+    private String group;
 
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public ContactData withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public ContactData withPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public ContactData withMail(String mail) {
+        this.mail = mail;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
     @Override
     public String toString() {
         return "ContactData{" +
@@ -19,27 +57,6 @@ public class ContactData {
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
-    }
-
-    public ContactData(int id, String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.personalphone = personalphone;
-        this.mail = mail;
-        this.address = address;
-        this.group = group;
-    }
-    public ContactData(String name, String lastname, String nickname, String personalphone, String mail, String address, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.name = name;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.personalphone = personalphone;
-        this.mail = mail;
-        this.address = address;
-        this.group = group;
     }
 
     public int getId() {
@@ -58,14 +75,13 @@ public class ContactData {
         return nickname;
     }
 
-    public String getPersonalphone() {
-        return personalphone;
+    public String getPhone() {
+        return phone;
     }
 
     public String getMail() {
         return mail;
     }
-
     public String getAddress() {
         return address;
     }
@@ -92,7 +108,7 @@ public class ContactData {
     }
 
     public boolean setGroup() {
-        this.group = new String("5");
+        this.group = "1";
         return true;
     }
 }

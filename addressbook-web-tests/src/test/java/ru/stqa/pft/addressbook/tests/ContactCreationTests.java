@@ -17,14 +17,25 @@ public class ContactCreationTests extends TestBase {
         app.contact().init();
         if (app.group().present1() || app.group().present2()) {
             app.goTo().groupPage();
-            app.group().create(new GroupData("5", null, null));
+            app.group().create(new GroupData()
+
+                    .withName("1"));
+
             app.contact().init();
         }
     }
     @Test
     public void testContactCreation() {
         List<ContactData> before = app.contact().list();
-        ContactData contact = new ContactData("Boris", "Krasava", "123", "+ 7 999 999 77 66", "1@1.ru", "Питер хороший город", null);
+        ContactData contact = new ContactData()
+                        .withName("Boris")
+                        .withLastname("Krasava")
+                        .withNickname("123")
+                        .withPhone("+ 7 999 999 77 66")
+                        .withMail("1@1.ru")
+                        .withAddress("Питер")
+                        .withGroup("1");
+
         app.contact().create(contact);
         List<ContactData> after = app.contact().list();
         assertEquals(after.size(), before.size() + 1);

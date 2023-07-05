@@ -18,10 +18,14 @@ public class GroupCreationTests extends TestBase {
     @Test
     public void testGroupCreation() {
         List<GroupData> before = app.group().list();
-        GroupData group = new GroupData("5", null, null);
+        GroupData group = new GroupData()
+
+                .withName("1");
+
         app.group().create(group);
         List<GroupData> after = app.group().list();
-        assertEquals(after.size(), before.size() + 1);
+        int index = before.size() + 1;
+        assertEquals(after.size(), index);
 
         before.add(group);
         Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());

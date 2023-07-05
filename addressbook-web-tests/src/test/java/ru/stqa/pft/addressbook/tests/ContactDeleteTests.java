@@ -19,10 +19,21 @@ public class ContactDeleteTests extends TestBase {
             app.contact().init();
             if (app.group().present1() || app.group().present2()) {
                 app.goTo().groupPage();
-                app.group().create(new GroupData("5", null, null));
+                app.group().create(new GroupData()
+
+                        .withName("1"));
+
                 app.contact().init();
             }
-            app.contact().create(new ContactData("Boris", "Krasava", "123", "+ 7 999 999 77 66", "1@1.ru", "Питер хороший город", "5"));
+            app.contact().create(new ContactData()
+
+                    .withName("Boris")
+                    .withLastname("Krasava")
+                    .withNickname("123")
+                    .withPhone("+ 7 999 999 77 66")
+                    .withMail("1@1.ru")
+                    .withAddress("Питер")
+                    .withGroup("1"));
         }
     }
     @Test
