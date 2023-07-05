@@ -11,22 +11,20 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 
 public class ContactCreationTests extends TestBase {
+
     @BeforeMethod
     public void ensurePreconditions(){
-        app.goTo().сontactPage();
-        app.contact().init();
-        if (app.group().present1() || app.group().present2()) {
-            app.goTo().groupPage();
-            app.group().create(new GroupData()
-
-                    .withName("1"));
-
-            app.contact().init();
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0) {
+        app.group().create1(new GroupData().withName("1"));
+            app.contact().returnToContactPage();
         }
-    }
+}
+
     @Test
     public void testContactCreation() {
         List<ContactData> before = app.contact().list();
+        app.contact().init();
         ContactData contact = new ContactData()
                         .withName("Boris")
                         .withLastname("Krasava")

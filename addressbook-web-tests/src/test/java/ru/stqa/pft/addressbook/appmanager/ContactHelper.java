@@ -19,7 +19,13 @@ public class ContactHelper extends HelperBase {
     }
 
     public void init() {
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         click(By.linkText("add new"));
+
     }
 
     public void submitContactCreation() {
@@ -86,6 +92,11 @@ public class ContactHelper extends HelperBase {
     }
 
     public void returnToContactPage() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         click(By.linkText("home page"));
     }
 

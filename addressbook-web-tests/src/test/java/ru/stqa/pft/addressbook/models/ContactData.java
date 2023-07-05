@@ -46,10 +46,12 @@ public class ContactData {
         this.address = address;
         return this;
     }
+
     public ContactData withGroup(String group) {
         this.group = group;
         return this;
     }
+
     @Override
     public String toString() {
         return "ContactData{" +
@@ -82,16 +84,13 @@ public class ContactData {
     public String getMail() {
         return mail;
     }
+
     public String getAddress() {
         return address;
     }
 
     public String getGroup() {
-        if (setGroup()) {
-            return group;
-        }
-
-        return null;
+        return group;
     }
 
     @Override
@@ -105,10 +104,5 @@ public class ContactData {
     @Override
     public int hashCode() {
         return Objects.hash(name, lastname);
-    }
-
-    public boolean setGroup() {
-        this.group = "1";
-        return true;
     }
 }

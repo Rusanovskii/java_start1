@@ -32,6 +32,9 @@ public class GroupHelper extends HelperBase {
     public void returnToGroupPage() {
         click(By.linkText("group page"));
     }
+    public void returnToCPage() {
+        click(By.linkText("home page"));
+    }
 
     public void initGroupCreation() {
 
@@ -61,6 +64,12 @@ public class GroupHelper extends HelperBase {
         submitGroupCreation();
         returnToGroupPage();
     }
+    public void create1(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToCPage();
+    }
     public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
@@ -85,7 +94,7 @@ public class GroupHelper extends HelperBase {
     }
     public boolean present2() {
         try {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("5");
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("1");
         } catch (Exception NoSuchElementException) {
             selectByIndex(name("new_group"), 0);
         }
@@ -98,6 +107,12 @@ public class GroupHelper extends HelperBase {
             return true;
         }
         return false;
+    }
+
+    public boolean exist() {
+        wd.findElement(By.xpath("//form/span[text()=\"1\"]"));
+        //*[.='Нужный мне текст']
+        return true;
     }
 
     public boolean checkListOfGroups() {
