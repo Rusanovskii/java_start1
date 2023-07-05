@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 
@@ -19,7 +18,7 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
-    public void initContactCreation() {
+    public void init() {
         click(By.linkText("add new"));
     }
 
@@ -94,38 +93,10 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         fillContactForm(contact, true);
         submitContactCreation();
         returnToContactPage();
-    }
-
-    public boolean selectGroupByList1() {
-        try {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("5");
-        } catch (Exception NoSuchElementException) {
-            selectByIndex(name("new_group"), 0);
-        }
-        return false;
-    }
-
-
-    public boolean selectGroupByList() {
-        if (checkListOfGroups()) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean checkListOfGroups() {
-        click(By.name("new_group"));
-        new Select(wd.findElement(name("new_group"))).selectByValue(String.valueOf("[none]"));
-        return true;
-    }
-    public boolean checkListOfGroups1() {
-        click(By.name("new_group"));
-        wd.findElement(name("new_group")).findElement(By.xpath(("(.//*[normalize-space(text()) and normalize-space(.)='Secondary'])[1]/preceding::option[5]")));
-        return true;
     }
 
     public void submitContactModification() {
@@ -133,7 +104,7 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
             List<ContactData> contacts = new ArrayList<>();
             List<WebElement> elements = wd.findElements(By.name("entry"));
             for (WebElement element : elements) {
@@ -145,6 +116,16 @@ public class ContactHelper extends HelperBase {
             }
             return contacts;
         }
+    public void modify(ContactData contact, int index) {
+        initContactModification(index);
+        fillContactForm(contact,false);
+        submitContactModification();
+        returnToContactPage();
+    }
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
+    }
     }
 
 

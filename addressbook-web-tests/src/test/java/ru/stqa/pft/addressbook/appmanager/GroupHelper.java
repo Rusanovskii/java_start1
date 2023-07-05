@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.models.GroupData;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void createGroup(GroupData group) {
+    public void create(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
@@ -69,7 +70,7 @@ public class GroupHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
@@ -80,5 +81,38 @@ public class GroupHelper extends HelperBase {
         }
         return groups;
     }
+    public void delete(int index) {
+        selectGroup(index);
+        deleteSelectedGroups();
+        returnToGroupPage();
+    }
+    public void modify(GroupData group, int index) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
+    }
+    public boolean present2() {
+        try {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("5");
+        } catch (Exception NoSuchElementException) {
+            selectByIndex(name("new_group"), 0);
+        }
+        return false;
+    }
 
+
+    public boolean present1() {
+        if (checkListOfGroups()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkListOfGroups() {
+        click(By.name("new_group"));
+        new Select(wd.findElement(name("new_group"))).selectByValue(String.valueOf("[none]"));
+        return true;
+    }
 }
