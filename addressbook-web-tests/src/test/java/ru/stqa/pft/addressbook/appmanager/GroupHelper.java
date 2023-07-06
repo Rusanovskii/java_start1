@@ -3,7 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.models.GroupData;
 
 import java.util.ArrayList;
@@ -32,9 +31,7 @@ public class GroupHelper extends HelperBase {
     public void returnToGroupPage() {
         click(By.linkText("group page"));
     }
-    public void returnToCPage() {
-        click(By.linkText("home page"));
-    }
+
 
     public void initGroupCreation() {
 
@@ -69,12 +66,7 @@ public class GroupHelper extends HelperBase {
             throw new RuntimeException(e);
         }
     }
-    public void create1(GroupData group) {
-        initGroupCreation();
-        fillGroupForm(group);
-        submitGroupCreation();
-        returnToCPage();
-    }
+
     public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
@@ -97,32 +89,12 @@ public class GroupHelper extends HelperBase {
         submitGroupModification();
         returnToGroupPage();
     }
-    public boolean present2() {
-        try {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText("1");
-        } catch (Exception NoSuchElementException) {
-            selectByIndex(name("new_group"), 0);
-        }
-        return false;
+    public boolean ignoredGroup(String ignoredGroup) {
+        return isElementPresent(By.xpath("//*[@name=\"new_group\"]/option[@value=\"ignoredGroup\"]"));
     }
 
-
-    public boolean present1() {
-        if (checkListOfGroups()) {
-            return true;
-        }
-        return false;
+    public boolean none() {
+        return isElementPresent(By.xpath("//*[@name=\"new_group\"]/option[@value=\"[none]\"]"));
     }
 
-    public boolean exist() {
-        wd.findElement(By.xpath("//form/span[text()=\"1\"]"));
-        //*[.='Нужный мне текст']
-        return true;
-    }
-
-    public boolean checkListOfGroups() {
-        click(By.name("new_group"));
-        new Select(wd.findElement(name("new_group"))).selectByValue(String.valueOf("[none]"));
-        return true;
-    }
 }

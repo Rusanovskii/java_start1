@@ -16,7 +16,8 @@ public class ContactModificationTest extends TestBase {
         app.goTo().сontactPage();
         if(app.contact().list().size() == 0){
             app.contact().init();
-            if(!app.group().present1()||!app.group().present2()){
+            if(app.group().none()
+                    ||!app.group().ignoredGroup("1")){
                 app.goTo().groupPage();
                 app.group().create(new GroupData()
 

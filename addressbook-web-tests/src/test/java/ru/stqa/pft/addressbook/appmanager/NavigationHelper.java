@@ -23,9 +23,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void сontactPage() {
-        if (isElementPresent(By.id("maintable"))) {
-            return;
-        } click(By.linkText("home page"));
+     click(By.linkText("home"));
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

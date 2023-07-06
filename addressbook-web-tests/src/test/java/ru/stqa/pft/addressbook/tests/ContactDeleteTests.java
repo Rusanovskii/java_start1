@@ -14,10 +14,12 @@ import static org.testng.Assert.assertEquals;
 public class ContactDeleteTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
+        String group = "1";
         app.goTo().сontactPage();
         if (app.contact().list().size() == 0) {
             app.contact().init();
-            if (app.group().present1() || app.group().present2()) {
+            if (app.group().none()
+                    || !app.group().ignoredGroup("1")) {
                 app.goTo().groupPage();
                 app.group().create(new GroupData()
 
@@ -33,7 +35,9 @@ public class ContactDeleteTests extends TestBase {
                     .withPhone("+ 7 999 999 77 66")
                     .withMail("1@1.ru")
                     .withAddress("Питер")
-                    .withGroup("1"));
+                    .withGroup(group));
+
+            app.contact().returnToContactPage();
         }
     }
     @Test

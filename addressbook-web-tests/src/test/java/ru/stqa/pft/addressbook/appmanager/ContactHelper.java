@@ -77,9 +77,12 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void selectContact(int index) {
-        wd.findElements(name("selected[]")).get(index).click();
-    }
+   // public void selectContact() {
+   //     click(By.name("selected[]"));
+   // }
+   public void selectContact(int index) {
+       wd.findElements(name("selected[]")).get(index).click();
+   }
 
     public void initContactModification(int index) {
         wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
@@ -87,7 +90,7 @@ public class ContactHelper extends HelperBase {
 
     public void returnToContactPage() {
         wd.findElement(By.linkText("home")).click();
-       // click(By.linkText("home page"));
+
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
