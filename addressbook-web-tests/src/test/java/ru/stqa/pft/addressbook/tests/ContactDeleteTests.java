@@ -10,33 +10,28 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-
 public class ContactDeleteTests extends TestBase {
+    private GroupData group;
+    private ContactData contact;
     @BeforeMethod
     public void ensurePreconditions(){
-        String group = "1";
-        app.goTo().сontactPage();
-        if (app.contact().list().size() == 0) {
-            app.contact().init();
-            if (app.group().none()
-                    || !app.group().ignoredGroup("1")) {
-                app.goTo().groupPage();
-                app.group().create(new GroupData()
-
-                        .withName("1"));
-
-                app.contact().init();
-            }
-            app.contact().create(new ContactData()
-
-                    .withName("Boris")
-                    .withLastname("Krasava")
-                    .withNickname("123")
-                    .withPhone("+ 7 999 999 77 66")
-                    .withMail("1@1.ru")
-                    .withAddress("Питер")
-                    .withGroup(group));
-
+        app.goTo().groupPage();
+        List<GroupData> groups = app.group().list();
+        if (groups.size() == 0) {
+            group = (new GroupData().withName("1"));
+            app.group().create(group);
+            app.contact().returnToContactPage();
+        } else {
+            group = groups.iterator().next();
+            app.contact().returnToContactPage();
+        }
+        List<ContactData> contacts = app.contact().list();
+        if (contacts.size() == 0) {
+            contact = (new ContactData().withName("Boris").withLastname("Krasava").withGroup(group.getName()));
+            app.contact().create(contact);
+            app.contact().returnToContactPage();
+        } else {
+            group = groups.iterator().next();
             app.contact().returnToContactPage();
         }
     }

@@ -22,11 +22,12 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void submitContactCreation() {
-        click(By.xpath("//div[@id='content']/form/input[21]"));
+    public void submit() {
+
+        click(By.name("submit"));
     }
 
-    public void fillContactForm(ContactData contactData, boolean creation) {
+    public void fillForm(ContactData contactData, boolean creation) {
         type(name("firstname"), contactData.getName());
         type(name("lastname"), contactData.getLastname());
         type(name("nickname"), contactData.getNickname());
@@ -89,7 +90,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void returnToContactPage() {
-        wd.findElement(By.linkText("home")).click();
+        click(By.linkText("home"));
 
         try {
             Thread.sleep(3000);
@@ -99,13 +100,15 @@ public class ContactHelper extends HelperBase {
     }
 
     public void create(ContactData contact) {
-        fillContactForm(contact, true);
-        submitContactCreation();
+        init();
+        fillForm(contact, true);
+        submit();
 
     }
 
     public void submitContactModification() {
-        click(By.xpath("//div[@id='content']/form/input[22]"));
+
+        click(By.name("update"));
     }
 
 
@@ -116,13 +119,16 @@ public class ContactHelper extends HelperBase {
                 int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
                 String name = element.findElement(By.xpath(".//td[3]")).getText();
                 String lastname = element.findElement(By.xpath(".//td[2]")).getText();
-                contacts.add(new ContactData().withId(id).withName(name).withLastname(lastname));
+                contacts.add(new ContactData()
+                        .withId(id)
+                        .withName(name)
+                        .withLastname(lastname));
             }
             return contacts;
         }
     public void modify(ContactData contact, int index) {
         initContactModification(index);
-        fillContactForm(contact,false);
+        fillForm(contact,false);
         submitContactModification();
         returnToContactPage();
     }

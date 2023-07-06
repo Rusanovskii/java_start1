@@ -89,9 +89,7 @@ public class ContactData {
         return address;
     }
 
-    public String getGroup() {
-        return group;
-    }
+    public String getGroup() { return group;}
 
     @Override
     public boolean equals(Object o) {

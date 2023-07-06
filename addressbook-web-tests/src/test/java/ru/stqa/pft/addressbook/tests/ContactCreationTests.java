@@ -11,14 +11,19 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 
 public class ContactCreationTests extends TestBase {
-
+private GroupData group;
     @BeforeMethod
     public void ensurePreconditions(){
         app.goTo().groupPage();
-        if (app.group().list().size() == 0) {
-            app.group().create(new GroupData().withName("1"));
+        List<GroupData> groups = app.group().list();
+        if (groups.size() == 0) {
+            group = (new GroupData().withName("1"));
+            app.group().create(group);
             app.contact().returnToContactPage();
-        } else app.contact().returnToContactPage();
+        } else {
+            group = groups.iterator().next();
+            app.contact().returnToContactPage();
+        }
 }
 
     @Test
@@ -33,7 +38,7 @@ public class ContactCreationTests extends TestBase {
                         .withPhone("+ 7 999 999 77 66")
                         .withMail("1@1.ru")
                         .withAddress("Питер")
-                        .withGroup("1");
+                        .withGroup(group.getName());
 
         app.contact().create(contact);
         app.goTo().сontactPage();
