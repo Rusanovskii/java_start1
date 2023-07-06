@@ -16,13 +16,14 @@ public class ContactCreationTests extends TestBase {
     public void ensurePreconditions(){
         app.goTo().groupPage();
         if (app.group().list().size() == 0) {
-        app.group().create1(new GroupData().withName("1"));
+            app.group().create(new GroupData().withName("1"));
             app.contact().returnToContactPage();
-        }
+        } else app.contact().returnToContactPage();
 }
 
     @Test
     public void testContactCreation() {
+
         List<ContactData> before = app.contact().list();
         app.contact().init();
         ContactData contact = new ContactData()
@@ -35,8 +36,9 @@ public class ContactCreationTests extends TestBase {
                         .withGroup("1");
 
         app.contact().create(contact);
+        app.goTo().сontactPage();
         List<ContactData> after = app.contact().list();
-        assertEquals(after.size(), before.size() + 1);
+        assertEquals(after.size(), before.size()+1);
 
         before.add(contact);
         Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());

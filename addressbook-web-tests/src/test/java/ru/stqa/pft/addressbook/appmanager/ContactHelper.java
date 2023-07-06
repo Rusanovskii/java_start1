@@ -19,13 +19,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void init() {
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         click(By.linkText("add new"));
-
     }
 
     public void submitContactCreation() {
@@ -92,18 +86,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public void returnToContactPage() {
+        wd.findElement(By.linkText("home")).click();
+       // click(By.linkText("home page"));
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        click(By.linkText("home page"));
     }
 
     public void create(ContactData contact) {
         fillContactForm(contact, true);
         submitContactCreation();
-        returnToContactPage();
+
     }
 
     public void submitContactModification() {

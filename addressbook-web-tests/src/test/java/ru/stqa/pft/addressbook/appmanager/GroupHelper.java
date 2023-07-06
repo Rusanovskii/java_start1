@@ -63,6 +63,11 @@ public class GroupHelper extends HelperBase {
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void create1(GroupData group) {
         initGroupCreation();

@@ -15,6 +15,11 @@ public class NavigationHelper extends HelperBase {
                 && isElementPresent(By.name("new"))) {
             return;
     } click(By.linkText("groups"));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void сontactPage() {
@@ -22,7 +27,7 @@ public class NavigationHelper extends HelperBase {
             return;
         } click(By.linkText("home page"));
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
