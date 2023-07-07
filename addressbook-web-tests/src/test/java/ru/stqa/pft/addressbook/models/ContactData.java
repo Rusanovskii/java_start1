@@ -88,6 +88,7 @@ public class ContactData {
     public String getAddress() {
         return address;
     }
+    public String getGroup() { return group;}
 
     @Override
     public boolean equals(Object o) {
@@ -101,7 +102,4 @@ public class ContactData {
     public int hashCode() {
         return Objects.hash(id, name, lastname);
     }
-
-    public String getGroup() { return group;}
-
 }
