@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.GroupData;
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
@@ -37,16 +37,13 @@ public class ContactDeleteTests extends TestBase {
     }
     @Test
     public void testContactDelete() throws Exception {
-        List<ContactData> before = app.contact().list();
-        int index = before.size() - 1;
-        app.contact().delete(index);
-        List<ContactData> after = app.contact().list();
+        Set<ContactData> before = app.contact().all();
+        ContactData deletedContact = before.iterator().next();
+        app.contact().delete(deletedContact);
+        Set<ContactData> after = app.contact().all();
         assertEquals(after.size(), before.size() - 1);
 
-        before.remove(index);
-        Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-        before.sort(byId);
-        after.sort(byId);
+        before.remove(deletedContact);
         assertEquals(before, after);
     }
 }

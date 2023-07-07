@@ -1,11 +1,16 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.openqa.selenium.By.name;
 import static org.testng.AssertJUnit.assertTrue;
@@ -19,6 +24,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void init() {
+
         click(By.linkText("add new"));
     }
 
@@ -78,15 +84,13 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-   // public void selectContact() {
-   //     click(By.name("selected[]"));
-   // }
-   public void selectContact(int index) {
-       wd.findElements(name("selected[]")).get(index).click();
-   }
+    public void selectContactById(int id) {
 
-    public void initContactModification(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+        wd.findElement(By.cssSelector("input[value= '" +id+ "']")).click();
+    }
+
+    public void initContactModification(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 
     public void returnToContactPage() {
@@ -111,31 +115,47 @@ public class ContactHelper extends HelperBase {
         click(By.name("update"));
     }
 
+    public void modify(ContactData contact) {
 
-    public List<ContactData> list() {
-            List<ContactData> contacts = new ArrayList<>();
-            List<WebElement> elements = wd.findElements(By.name("entry"));
-            for (WebElement element : elements) {
-                int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-                String name = element.findElement(By.xpath(".//td[3]")).getText();
-                String lastname = element.findElement(By.xpath(".//td[2]")).getText();
-                contacts.add(new ContactData()
-                        .withId(id)
-                        .withName(name)
-                        .withLastname(lastname));
-            }
-            return contacts;
-        }
-    public void modify(ContactData contact, int index) {
-        initContactModification(index);
+        initContactModification(contact.getId());
         fillForm(contact,false);
         submitContactModification();
         returnToContactPage();
     }
-    public void delete(int index) {
-        selectContact(index);
+
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
         deleteSelectedContact();
     }
+    public List<ContactData> list() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        for (WebElement element : elements) {
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            String name = element.findElement(By.xpath(".//td[3]")).getText();
+            String lastname = element.findElement(By.xpath(".//td[2]")).getText();
+            contacts.add(new ContactData()
+                    .withId(id)
+                    .withName(name)
+                    .withLastname(lastname));
+        }
+        return contacts;
     }
+    public Set<ContactData> all() {
+        Set<ContactData> contacts = new HashSet<>();
+        List<WebElement> elements = wd.findElements(By.name("entry"));
+        for (WebElement element : elements) {
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            String name = element.findElement(By.xpath(".//td[3]")).getText();
+            String lastname = element.findElement(By.xpath(".//td[2]")).getText();
+            contacts.add(new ContactData()
+                    .withId(id)
+                    .withName(name)
+                    .withLastname(lastname));
+        }
+        return contacts;
+    }
+
+}
 
 

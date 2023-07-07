@@ -89,18 +89,19 @@ public class ContactData {
         return address;
     }
 
-    public String getGroup() { return group;}
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, lastname);
+        return Objects.hash(id, name, lastname);
     }
+
+    public String getGroup() { return group;}
+
 }

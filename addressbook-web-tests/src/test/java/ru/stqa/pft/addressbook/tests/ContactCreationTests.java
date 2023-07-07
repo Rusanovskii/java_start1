@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.GroupData;
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
@@ -29,7 +29,7 @@ private GroupData group;
     @Test
     public void testContactCreation() {
 
-        List<ContactData> before = app.contact().list();
+        Set<ContactData> before = app.contact().all();
         app.contact().init();
         ContactData contact = new ContactData()
                         .withName("Boris")
@@ -42,13 +42,11 @@ private GroupData group;
 
         app.contact().create(contact);
         app.goTo().сontactPage();
-        List<ContactData> after = app.contact().list();
+        Set<ContactData> after = app.contact().all();
         assertEquals(after.size(), before.size()+1);
 
+        contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
         before.add(contact);
-        Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-        before.sort(byId);
-        after.sort(byId);
         assertEquals(before, after);
     }
 }
