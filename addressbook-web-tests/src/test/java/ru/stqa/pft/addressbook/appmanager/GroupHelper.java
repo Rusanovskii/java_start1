@@ -7,9 +7,7 @@ import ru.stqa.pft.addressbook.models.GroupData;
 import ru.stqa.pft.addressbook.models.Groups;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.openqa.selenium.By.name;
 
@@ -20,12 +18,12 @@ public class GroupHelper extends HelperBase {
         super(wd);
     }
 
-    public void submitGroupCreation() {
+    public void submit() {
 
         click(By.name("submit"));
     }
 
-    public void fillGroupForm(GroupData groupData) {
+    public void fillForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
         type(By.name("group_header"), groupData.getHeader());
         type(By.name("group_footer"), groupData.getFooter());
@@ -36,7 +34,7 @@ public class GroupHelper extends HelperBase {
     }
 
 
-    public void initGroupCreation() {
+    public void init() {
 
         click(By.name("new"));
     }
@@ -64,15 +62,11 @@ public class GroupHelper extends HelperBase {
     }
 
     public void create(GroupData group) {
-        initGroupCreation();
-        fillGroupForm(group);
-        submitGroupCreation();
+        init();
+        fillForm(group);
+        submit();
+        groupCache = null;
         returnToGroupPage();
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void delete(int index) {
@@ -83,14 +77,16 @@ public class GroupHelper extends HelperBase {
     public void delete(GroupData group) {
         selectGroupById(group.getId());
         deleteSelectedGroups();
+        groupCache = null;
         returnToGroupPage();
     }
 
     public void modify(GroupData group) {
         selectGroupById(group.getId());
         initGroupModification();
-        fillGroupForm(group);
+        fillForm(group);
         submitGroupModification();
+        groupCache = null;
         returnToGroupPage();
     }
 
@@ -105,14 +101,21 @@ public class GroupHelper extends HelperBase {
         return groups;
     }
     public Groups all() {
-        Groups groups = new Groups();
+        if (groupCache != null){
+            return new Groups(groupCache);
+        }
+        groupCache = new Groups();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             String name = element.getText();
-            groups.add(new GroupData().withId(id).withName(name));
+            groupCache.add(new GroupData().withId(id).withName(name));
         }
-        return groups;
+        return new Groups(groupCache);
     }
+    public int count() {
+        return wd.findElements(name("selected[]")).size();
+    }
+    private Groups groupCache = null;
 }
 

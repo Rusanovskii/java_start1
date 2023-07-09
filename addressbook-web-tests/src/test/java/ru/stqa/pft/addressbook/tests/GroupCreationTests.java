@@ -22,9 +22,9 @@ public class GroupCreationTests extends TestBase {
                 .withName("1");
 
         app.group().create(group);
-        Groups after = app.group().all();
         int index = before.size() + 1;
-        assertThat(after.size(), equalTo(index));
+        assertThat(app.group().count(), equalTo(index));
+        Groups after = app.group().all();
         assertThat(after, equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g)->g.getId()).max().getAsInt()))));
     }

@@ -32,19 +32,21 @@ private GroupData group;
         Contacts before = app.contact().all();
         app.contact().init();
         ContactData contact = new ContactData()
-                        .withName("Boris")
-                        .withLastname("Krasava")
-                        .withNickname("123")
-                        .withPhone("+ 7 999 999 77 66")
-                        .withMail("1@1.ru")
-                        .withAddress("Питер")
-                        .withGroup(group.getName());
+                .withName("Boris")
+                .withLastname("Krasava")
+                .withNickname("123")
+                .withAddress("г.Санкт-Петербург, ул.Строителей, дом 2/5, кв.12")
+                .withHomePhone("+ 7 999 999 77 66")
+                .withMobilePhone("7-666-666-77-66")
+                .withPersonalMail("2@2.ru")
+                .withWorkMail("3@3.ru")
+                .withGroup(group.getName());
 
         app.contact().create(contact);
         app.goTo().сontactPage();
-        Contacts after = app.contact().all();
         int index = before.size() + 1;
-        assertThat(after.size(), equalTo( index));
+        assertThat(app.contact().count(), equalTo( index));
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
