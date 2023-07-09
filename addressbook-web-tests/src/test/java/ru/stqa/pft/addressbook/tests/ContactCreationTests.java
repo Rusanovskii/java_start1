@@ -38,8 +38,10 @@ private GroupData group;
                 .withAddress("г.Санкт-Петербург, ул.Строителей, дом 2/5, кв.12")
                 .withHomePhone("+ 7 999 999 77 66")
                 .withMobilePhone("7-666-666-77-66")
-                .withPersonalMail("2@2.ru")
+                .withWorkPhone("7-999-666-77-66")
+                .withPersonalMail("1@1.ru")
                 .withWorkMail("3@3.ru")
+                .withOtherMail("PoBEdiTel@2.ru")
                 .withGroup(group.getName());
 
         app.contact().create(contact);

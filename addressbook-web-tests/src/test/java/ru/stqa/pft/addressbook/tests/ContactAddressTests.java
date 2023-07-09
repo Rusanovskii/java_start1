@@ -22,8 +22,10 @@ public class ContactAddressTests extends TestBase{
                     .withAddress("г.Санкт-Петербург, ул.Строителей, дом 25, кв.12")
                     .withHomePhone("+7(999)9997766")
                     .withMobilePhone("+7-666-666-77-66")
+                    .withOtherMail("3@3.ru")
                     .withPersonalMail("1@1.ru")
-                    .withWorkMail("2@2.ru"));
+                    .withWorkMail("2@2.ru")
+                    .withWorkMail("PoBEdiTel@2.ru"));
             app.contact().create(contact);
             app.contact().returnToContactPage();
         } else {

@@ -146,9 +146,10 @@ public class ContactHelper extends HelperBase {
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String personalMail = wd.findElement(By.name("email")).getAttribute("value");
         String workMail = wd.findElement(By.name("email2")).getAttribute("value");
+        String otherMail = wd.findElement(By.name("email3")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname)
-                .withPersonalMail(personalMail).withWorkMail(workMail);
+                .withPersonalMail(personalMail).withWorkMail(workMail).withOtherMail(otherMail);
     }
     public ContactData infoAboutAddress(ContactData contact) {
         initContactModification(contact.getId());
@@ -164,9 +165,10 @@ public class ContactHelper extends HelperBase {
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String homePhone = wd.findElement(By.name("home")).getAttribute("value");
         String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
+        String workPhone = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname)
-                .withHomePhone(homePhone).withMobilePhone(mobilePhone);
+                .withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
     }
     public Contacts all() {
         if (contactCache != null){
@@ -179,19 +181,15 @@ public class ContactHelper extends HelperBase {
             String name = element.findElement(By.xpath(".//td[3]")).getText();
             String lastname = element.findElement(By.xpath(".//td[2]")).getText();
             String allPhones = element.findElement(By.xpath(".//td[6]")).getText();
-            String[] phones = allPhones.split("\n");
             String allMails = element.findElement(By.xpath(".//td[5]")).getText();
-            String[] mails = allMails.split("\n");
             String address = element.findElement(By.xpath(".//td[4]")).getText();
             contactCache.add(new ContactData()
                     .withId(id)
                     .withName(name)
                     .withLastname(lastname)
                     .withAddress(address)
-                    .withHomePhone(phones[0])
-                    .withMobilePhone(phones[1])
-                    .withPersonalMail(mails[0])
-                    .withWorkMail(mails[1]));
+                    .withAllPhones(allPhones)
+                    .withAllMails(allMails));
 
         }
         return new Contacts(contactCache);

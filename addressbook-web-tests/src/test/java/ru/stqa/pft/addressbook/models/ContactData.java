@@ -7,10 +7,16 @@ public class ContactData {
     private String name;
     private String lastname;
     private String nickname;
+    private String allPhones;
+
     private String homePhone;
     private String mobilePhone;
+    private String workPhone;
     private String personalMail;
+    private String allMails;
+
     private String workMail;
+    private String otherMail;
     private String address;
     private String group;
 
@@ -33,6 +39,10 @@ public class ContactData {
         this.nickname = nickname;
         return this;
     }
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public ContactData withHomePhone(String homePhone) {
         this.homePhone = homePhone;
@@ -43,6 +53,14 @@ public class ContactData {
         this.mobilePhone = mobilePhone;
         return this;
     }
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+    public ContactData withAllMails(String allMails) {
+        this.allMails = allMails;
+        return this;
+    }
 
     public ContactData withPersonalMail(String personalMail) {
         this.personalMail = personalMail;
@@ -50,6 +68,10 @@ public class ContactData {
     }
     public ContactData withWorkMail(String workMail) {
         this.workMail = workMail;
+        return this;
+    }
+    public ContactData withOtherMail(String otherMail) {
+        this.otherMail = otherMail;
         return this;
     }
 
@@ -87,16 +109,26 @@ public class ContactData {
     public String getNickname() {
         return nickname;
     }
+    public String getAllPhones() {
+        return allPhones;
+    }
 
     public String getHomePhone() {
         return homePhone;
     }
     public String getMobilePhone() {return mobilePhone; }
+    public String getWorkPhone() {return workPhone; }
+
+
+    public String getAllMails() {
+        return allMails;
+    }
 
     public String getPersonalMail() {
         return personalMail;
     }
     public String getWorkMail() {return workMail; }
+    public String getOtherMail() {return otherMail; }
 
     public String getAddress() {
         return address;
@@ -115,5 +147,7 @@ public class ContactData {
     public int hashCode() {
         return Objects.hash(id, name, lastname);
     }
+
+
 
 }

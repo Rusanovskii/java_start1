@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -23,8 +26,9 @@ public class ContactEmailTests extends TestBase{
                     .withAddress("Питер")
                     .withHomePhone("+7(999)9997766")
                     .withMobilePhone("+7-666-666-77-66")
+                    .withWorkPhone("+7-888-666-77-66")
                     .withPersonalMail("1_win@1.ru")
-                    .withWorkMail("PoBEdiTel@2.ru"));
+                    .withOtherMail("3@3.ru"));
             app.contact().create(contact);
             app.contact().returnToContactPage();
         } else {
@@ -38,11 +42,17 @@ public class ContactEmailTests extends TestBase{
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoAboutEmails = app.contact().infoAboutEmails(contact);
 
-        assertThat(contact.getPersonalMail(), equalTo(cleaned(contactInfoAboutEmails.getPersonalMail())));
-        assertThat(contact.getWorkMail(), equalTo(cleaned(contactInfoAboutEmails.getWorkMail())));
+        assertThat(contact.getAllMails(), equalTo(cleaned(mergeMails(contactInfoAboutEmails))));
     }
 
-    public String cleaned(String mail) {
+    private String mergeMails(ContactData contact) {
+        return Arrays.asList(contact.getPersonalMail(),contact.getWorkMail(),contact.getOtherMail())
+                .stream().filter((s)-> ! s.equals(""))
+                .map(ContactEmailTests::cleaned)
+                .collect(Collectors.joining("\n"));
+    }
+
+    public static String cleaned(String mail) {
         return mail.replaceAll("[A-Z]", "[a-z]").replaceAll("_", "-");
     }
 }
