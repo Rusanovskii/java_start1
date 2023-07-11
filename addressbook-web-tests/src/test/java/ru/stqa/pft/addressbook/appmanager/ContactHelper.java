@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ContactHelper extends HelperBase {
         type(name("mobile"), contactData.getMobilePhone());
         type(name("email"), contactData.getPersonalMail());
         type(name("email2"), contactData.getWorkMail());
+        attach(name("photo"), contactData.getPhoto());
 
 
         if (creation) {
@@ -60,7 +62,11 @@ public class ContactHelper extends HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
-
+    public void attach(By locator, File file) {
+        if(file != null){
+        wd.findElement(locator).sendKeys(file.getAbsolutePath());
+        }
+    }
     public void deleteSelectedContact() {
         click(By.xpath("//input[@value='Delete']"));
         assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));

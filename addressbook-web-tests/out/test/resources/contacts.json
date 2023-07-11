@@ -1,0 +1,38 @@
+[
+  {
+    "name": "nome 0",
+    "lastname": "lastnome 0",
+    "nickname": "nickname 0",
+    "homePhone": "+ 7 999 999 77 0",
+    "mobilePhone": "+ 7 999 999 77 0",
+    "workPhone": "+ 7 999 999 77 0",
+    "personalMail": "0@mail.ru",
+    "workMail": "0@mail.ru",
+    "otherMail": "0@mail.ru",
+    "address": "address 0"
+  },
+  {
+    "name": "nome 1",
+    "lastname": "lastnome 1",
+    "nickname": "nickname 1",
+    "homePhone": "+ 7 999 999 77 1",
+    "mobilePhone": "+ 7 999 999 77 1",
+    "workPhone": "+ 7 999 999 77 1",
+    "personalMail": "1@mail.ru",
+    "workMail": "1@mail.ru",
+    "otherMail": "1@mail.ru",
+    "address": "address 1"
+  },
+  {
+    "name": "nome 2",
+    "lastname": "lastnome 2",
+    "nickname": "nickname 2",
+    "homePhone": "+ 7 999 999 77 2",
+    "mobilePhone": "+ 7 999 999 77 2",
+    "workPhone": "+ 7 999 999 77 2",
+    "personalMail": "2@mail.ru",
+    "workMail": "2@mail.ru",
+    "otherMail": "2@mail.ru",
+    "address": "address 2"
+  }
+]
