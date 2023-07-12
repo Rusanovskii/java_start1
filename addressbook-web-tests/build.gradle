@@ -4,38 +4,6 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-core:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-rest:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-mitm:2.2.8'
-    implementation 'com.browserup:browserup-proxy-core:2.1.2'
-    implementation 'com.browserup:browserup-proxy-mitm:2.1.2'
-    implementation 'com.browserup:browserup-proxy-rest:2.1.2'
-    implementation 'com.browserup:browserup-proxy:2.1.2'
-    implementation 'com.browserup:browserup-proxy-dist:1.0.0'
-    implementation 'com.browserup:browserup-proxy-dist:1.0.0'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-core:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-core:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-rest:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-rest:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-mitm:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-mitm:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-core:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-core:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-rest:2.2.8'
-    implementation 'com.github.valfirst.browserup-proxy:browserup-proxy-rest:2.2.8'
-    implementation 'dev.zacsweers.autoservice.ksp:dev.zacsweers.autoservice.ksp.gradle.plugin:0.2.1'
-    implementation 'io.github.luqinx:autoservice:1.8.0'
-    implementation 'dev.zacsweers.autoservice:auto-service-ksp-gradle-plugin:0.2.1'
-    implementation 'dev.zacsweers.autoservice:auto-service-ksp:1.0.0'
-    implementation 'com.google.auto.service:auto-service-aggregator:1.0.1'
-    implementation 'com.github.sidneibjunior:auto-service-annotations:1.0-rc6'
-    implementation 'com.google.auto.service:auto-service-annotations:1.0.1'
-    implementation 'com.google.auto.service:auto-service:1.0.1'
-    implementation 'com.github.transbankdevelopers:transbank-sdk-pos-java:3.1.0'
     testImplementation 'org.testng:testng:7.1.0'
     testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     implementation 'org.slf4j:slf4j-simple:2.0.7'
@@ -43,4 +11,29 @@ dependencies {
     implementation 'com.beust:jcommander:1.82'
     implementation 'com.google.code.gson:gson:2.10.1'
 }
+tasks.register('testContacts', Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+}
+
+tasks.register('testGroups', Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+}
+
+
 
