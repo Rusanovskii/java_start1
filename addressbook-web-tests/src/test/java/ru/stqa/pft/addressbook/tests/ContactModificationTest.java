@@ -7,6 +7,8 @@ import ru.stqa.pft.addressbook.models.Contacts;
 import ru.stqa.pft.addressbook.models.GroupData;
 import ru.stqa.pft.addressbook.models.Groups;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -26,14 +28,20 @@ public class ContactModificationTest extends TestBase {
             app.contact().returnToContactPage();
         }
         Contacts contacts = app.contact().all();
+        File photo = new File("src/test/resources/111.png");
         if (contacts.size() == 0) {
             contact = (new ContactData()
                     .withName("Boris")
                     .withLastname("Krasava")
                     .withNickname("123")
+                    .withAddress("г.Санкт-Петербург, ул.Строителей, дом 2/5, кв.12")
                     .withHomePhone("+ 7 999 999 77 66")
+                    .withMobilePhone("7-666-666-77-66")
+                    .withWorkPhone("7-999-666-77-66")
                     .withPersonalMail("1@1.ru")
-                    .withAddress("Питер")
+                    .withWorkMail("3@3.ru")
+                    .withOtherMail("PoBEdiTel@2.ru")
+                    .withPhoto(photo)
                     .withGroup(group.getName()));
             app.contact().create(contact);
             app.contact().returnToContactPage();
@@ -46,17 +54,20 @@ public class ContactModificationTest extends TestBase {
     public void testContactModification() throws InterruptedException {
         Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
+        File photo = new File("src/test/resources/222.png");
         ContactData contact = new ContactData()
-
                 .withId(modifiedContact.getId())
                 .withName("Pavel")
                 .withLastname("Dava")
                 .withNickname("321")
-                .withAddress("Москва")
-                .withHomePhone("+ 7 999 999 77 66")
-                .withMobilePhone("7-666-666-77-66")
-                .withPersonalMail("2@2.ru")
-                .withWorkMail("3@3.ru");
+                .withAddress("г.Москва, ул.Строителей, дом 2/5, кв.12")
+                .withHomePhone("+ 7 444 999 77 66")
+                .withMobilePhone("7-333-666-77-66")
+                .withWorkPhone("7-555-666-77-66")
+                .withPersonalMail("1@2.ru")
+                .withWorkMail("22@3.ru")
+                .withOtherMail("111l@2.ru")
+                .withPhoto(photo);
 
 
         app.contact().modify(contact);

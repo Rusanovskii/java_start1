@@ -40,8 +40,10 @@ public class ContactHelper extends HelperBase {
         type(name("address"), contactData.getAddress());
         type(name("home"), contactData.getHomePhone());
         type(name("mobile"), contactData.getMobilePhone());
+        type(name("work"), contactData.getWorkPhone());
         type(name("email"), contactData.getPersonalMail());
         type(name("email2"), contactData.getWorkMail());
+        type(name("email3"), contactData.getOtherMail());
         attach(name("photo"), contactData.getPhoto());
 
 

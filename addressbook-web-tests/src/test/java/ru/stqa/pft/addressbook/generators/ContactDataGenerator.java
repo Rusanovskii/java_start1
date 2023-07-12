@@ -45,12 +45,11 @@ public class ContactDataGenerator {
     }
 
         private void saveAsCsv (List < ContactData > contacts, File file) throws IOException {
-            Writer writer = new FileWriter(file);
+            try (Writer writer = new FileWriter(file)){
             for (ContactData contact : contacts) {
-                writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getName(), contact.getLastname(), contact.getNickname(), contact.getAddress(), contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(), contact.getPersonalMail(), contact.getWorkMail(), contact.getOtherMail()));
+                writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n", contact.getName(), contact.getLastname(), contact.getNickname(), contact.getAddress(), contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(), contact.getPersonalMail(), contact.getWorkMail(), contact.getOtherMail()));}
             }
-            writer.close();
-        }
+    }
 
         private List<ContactData> generateContact ( int count){
             List<ContactData> contacts = new ArrayList<ContactData>();
