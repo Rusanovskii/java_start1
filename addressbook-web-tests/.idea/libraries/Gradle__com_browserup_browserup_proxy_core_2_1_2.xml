@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.browserup:browserup-proxy-core:2.1.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.browserup" artifactId="browserup-proxy-core" version="2.1.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.browserup/browserup-proxy-core/2.1.2/df7d3bb01ac3bedf4dadeec3c80afc90bf36f55c/browserup-proxy-core-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.browserup/browserup-proxy-core/2.1.2/d59c3b7fb60e6b25039b505df479acbd3cc4fa3c/browserup-proxy-core-2.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

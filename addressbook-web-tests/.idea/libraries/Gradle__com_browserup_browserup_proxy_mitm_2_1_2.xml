@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.browserup:browserup-proxy-mitm:2.1.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.browserup" artifactId="browserup-proxy-mitm" version="2.1.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.browserup/browserup-proxy-mitm/2.1.2/301acad6f90f7e2c778241bb9f975926049315f0/browserup-proxy-mitm-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.browserup/browserup-proxy-mitm/2.1.2/2d5b9813f8d79c68032af22efc3dba4e9578766c/browserup-proxy-mitm-2.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

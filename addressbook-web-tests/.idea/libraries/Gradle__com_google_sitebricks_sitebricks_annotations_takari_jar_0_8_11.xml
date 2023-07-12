@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.sitebricks:sitebricks-annotations:takari-jar:0.8.11" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.google.sitebricks" artifactId="sitebricks-annotations" version="0.8.11" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-annotations/0.8.11/5d6aa97e21f2e54590d05058cd28ef728e8c1ced/sitebricks-annotations-0.8.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-annotations/0.8.11/3f09faa709b460eb474fbc1186948cd7182dff74/sitebricks-annotations-0.8.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

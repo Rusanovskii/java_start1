@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.sitebricks:sitebricks-client:takari-jar:0.8.11" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.google.sitebricks" artifactId="sitebricks-client" version="0.8.11" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-client/0.8.11/c1dc44c15ae1013469d95034306c3d95dcdbd1c9/sitebricks-client-0.8.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-client/0.8.11/58e18736db7b02c28ff39595b19bea5021f0167d/sitebricks-client-0.8.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

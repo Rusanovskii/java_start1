@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.sitebricks:sitebricks-converter:takari-jar:0.8.11" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.google.sitebricks" artifactId="sitebricks-converter" version="0.8.11" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-converter/0.8.11/e135d58dc028a51f5de0d6760c9cb08f10d5d2ac/sitebricks-converter-0.8.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.sitebricks/sitebricks-converter/0.8.11/a8db2681876c2ca618532b8c73fc881b3050e0d9/sitebricks-converter-0.8.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

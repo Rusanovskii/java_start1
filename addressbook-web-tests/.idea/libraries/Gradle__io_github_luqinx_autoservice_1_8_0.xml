@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.luqinx:autoservice:1.8.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.luqinx" artifactId="autoservice" version="1.8.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.luqinx/autoservice/1.8.0/a556fccfe2fb33057c152859e9c66590e0ee7257/autoservice-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.luqinx/autoservice/1.8.0/992abfff7d769ecc40c95b5f001a96cf52274280/autoservice-1.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

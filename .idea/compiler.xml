@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="addressbook-web-tests" target="1.8" />
+      <module name="KR-exported-java-testNG-maven-project" target="1.7" />
+      <module name="sandbox" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

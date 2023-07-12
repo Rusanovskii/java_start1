@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.sidneibjunior:auto-service-annotations:1.0-rc6" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.sidneibjunior" artifactId="auto-service-annotations" version="1.0-rc6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sidneibjunior/auto-service-annotations/1.0-rc6/3202048a58831fc22acd926c8ac2e4c60f3beb3f/auto-service-annotations-1.0-rc6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sidneibjunior/auto-service-annotations/1.0-rc6/c7424ff86b1853a0fe3484d7a254c49bbaa49d4a/auto-service-annotations-1.0-rc6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

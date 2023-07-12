@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: dev.zacsweers.autoservice:auto-service-ksp:1.0.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="dev.zacsweers.autoservice" artifactId="auto-service-ksp" version="1.0.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.zacsweers.autoservice/auto-service-ksp/1.0.0/b6ee6fedbbeaf27e91f081d8c0c884162c7dc2aa/auto-service-ksp-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.zacsweers.autoservice/auto-service-ksp/1.0.0/7243c528e84e07945b1f0a3fc82719acc18cd2e0/auto-service-ksp-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

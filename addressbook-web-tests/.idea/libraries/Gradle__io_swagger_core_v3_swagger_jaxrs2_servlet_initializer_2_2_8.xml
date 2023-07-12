@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: io.swagger.core.v3:swagger-jaxrs2-servlet-initializer:2.2.8" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.swagger.core.v3" artifactId="swagger-jaxrs2-servlet-initializer" version="2.2.8" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-jaxrs2-servlet-initializer/2.2.8/f45bd309649998e4f60a71076c8700c957e39b72/swagger-jaxrs2-servlet-initializer-2.2.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.swagger.core.v3/swagger-jaxrs2-servlet-initializer/2.2.8/add938464855d2253befed6e48862b71f6a3094d/swagger-jaxrs2-servlet-initializer-2.2.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

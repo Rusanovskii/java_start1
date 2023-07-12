@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.transbankdevelopers:transbank-sdk-pos-java:3.1.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.transbankdevelopers" artifactId="transbank-sdk-pos-java" version="3.1.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.transbankdevelopers/transbank-sdk-pos-java/3.1.0/bfbac1c2d2cf93c59181cc4f6e2a83c8fd62836d/transbank-sdk-pos-java-3.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.transbankdevelopers/transbank-sdk-pos-java/3.1.0/5e7cd808e9f462be1d610b4260e6d923a9b03377/transbank-sdk-pos-java-3.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
