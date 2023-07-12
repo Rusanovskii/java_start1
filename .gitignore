@@ -22,5 +22,4 @@ sandbox/.gradle/6.9.4/javaCompile/jarAnalysis.bin
 sandbox/.gradle/6.9.4/javaCompile/javaCompile.lock
 *.bin
 *.iml
-*.xml
 *.lock
