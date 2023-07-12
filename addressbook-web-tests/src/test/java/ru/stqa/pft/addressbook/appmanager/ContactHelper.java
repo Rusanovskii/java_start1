@@ -9,7 +9,6 @@ import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.openqa.selenium.By.name;
@@ -134,49 +133,23 @@ public class ContactHelper extends HelperBase {
         deleteSelectedContact();
         contactCache = null;
     }
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<>();
-        List<WebElement> elements = wd.findElements(By.name("entry"));
-        for (WebElement element : elements) {
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            String name = element.findElement(By.xpath(".//td[3]")).getText();
-            String lastname = element.findElement(By.xpath(".//td[2]")).getText();
-            contacts.add(new ContactData()
-                    .withId(id)
-                    .withName(name)
-                    .withLastname(lastname));
-        }
-        return contacts;
-    }
-    public ContactData infoAboutEmails(ContactData contact) {
-        initContactModification(contact.getId());
-        String name = wd.findElement(By.name("firstname")).getAttribute("value");
-        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
-        String personalMail = wd.findElement(By.name("email")).getAttribute("value");
-        String workMail = wd.findElement(By.name("email2")).getAttribute("value");
-        String otherMail = wd.findElement(By.name("email3")).getAttribute("value");
-        wd.navigate().back();
-        return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname)
-                .withPersonalMail(personalMail).withWorkMail(workMail).withOtherMail(otherMail);
-    }
-    public ContactData infoAboutAddress(ContactData contact) {
-        initContactModification(contact.getId());
-        String name = wd.findElement(By.name("firstname")).getAttribute("value");
-        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
-        String address = wd.findElement(By.name("address")).getAttribute("value");
-        wd.navigate().back();
-        return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname).withAddress(address);
-    }
-    public ContactData infoAboutPhones(ContactData contact) {
+
+
+    public ContactData infoFromEditForm(ContactData contact) {
         initContactModification(contact.getId());
         String name = wd.findElement(By.name("firstname")).getAttribute("value");
         String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
         String homePhone = wd.findElement(By.name("home")).getAttribute("value");
         String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
         String workPhone = wd.findElement(By.name("work")).getAttribute("value");
+        String address = wd.findElement(By.name("address")).getAttribute("value");
+        String personalMail = wd.findElement(By.name("email")).getAttribute("value");
+        String workMail = wd.findElement(By.name("email2")).getAttribute("value");
+        String otherMail = wd.findElement(By.name("email3")).getAttribute("value");
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withName(name).withLastname(lastname)
-                .withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
+                .withAddress(address).withHomePhone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone)
+                .withPersonalMail(personalMail).withWorkMail(workMail).withOtherMail(otherMail);
     }
     public Contacts all() {
         if (contactCache != null){
