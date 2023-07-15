@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
 import ru.stqa.pft.addressbook.models.GroupData;
-import ru.stqa.pft.addressbook.models.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,15 +25,11 @@ public class ContactCreationTests extends TestBase {
 private GroupData group;
     @BeforeMethod
     public void ensurePreconditions(){
-        app.goTo().groupPage();
-        Groups groups = app.group().all();
-        if (groups.size() == 0) {
-            group = (new GroupData().withName("1"));
-            app.group().create(group);
-            app.contact().returnToContactPage();
+        if (app.db().groups().size() == 0){
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("1"));
         } else {
-            group = groups.iterator().next();
-            app.contact().returnToContactPage();
+            app.goTo().сontactPage();
         }
 }
 @DataProvider
@@ -66,14 +61,13 @@ public Iterator<Object[]> validContactsFromCvs() throws IOException {
     }
     @Test(dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
-
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         app.contact().init();
         app.contact().create(contact);
         app.goTo().сontactPage();
         int index = before.size() + 1;
-        assertThat(app.contact().count(), equalTo( index));
-        Contacts after = app.contact().all();
+        assertThat(app.contact().count(), equalTo(index));
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }

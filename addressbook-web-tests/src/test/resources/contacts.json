@@ -9,7 +9,8 @@
     "personalMail": "0@mail.ru",
     "workMail": "0@mail.ru",
     "otherMail": "0@mail.ru",
-    "address": "address 0"
+    "address": "address 0",
+    "photo": "src/test/resources/111.png"
   },
   {
     "name": "nome 1",
@@ -21,7 +22,8 @@
     "personalMail": "1@mail.ru",
     "workMail": "1@mail.ru",
     "otherMail": "1@mail.ru",
-    "address": "address 1"
+    "address": "address 1",
+    "photo": "src/test/resources/111.png"
   },
   {
     "name": "nome 2",
@@ -33,6 +35,7 @@
     "personalMail": "2@mail.ru",
     "workMail": "2@mail.ru",
     "otherMail": "2@mail.ru",
-    "address": "address 2"
+    "address": "address 2",
+    "photo": "src/test/resources/111.png"
   }
 ]

@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
 import ru.stqa.pft.addressbook.models.GroupData;
-import ru.stqa.pft.addressbook.models.Groups;
 
 import java.io.File;
 
@@ -17,19 +16,12 @@ public class ContactModificationTest extends TestBase {
     private ContactData contact;
     @BeforeMethod
     public void ensurePreconditions(){
-        app.goTo().groupPage();
-        Groups groups = app.group().all();
-        if (groups.size() == 0) {
-            group = (new GroupData().withName("1"));
-            app.group().create(group);
-            app.contact().returnToContactPage();
-        } else {
-            group = groups.iterator().next();
-            app.contact().returnToContactPage();
-        }
-        Contacts contacts = app.contact().all();
+        if (app.db().groups().size() == 0){
+                app.goTo().groupPage();
+                app.group().create(new GroupData().withName("1"));
+        } if  (app.db().contacts().size() == 0){
+            app.goTo().сontactPage();
         File photo = new File("src/test/resources/111.png");
-        if (contacts.size() == 0) {
             contact = (new ContactData()
                     .withName("Boris")
                     .withLastname("Krasava")
@@ -46,13 +38,12 @@ public class ContactModificationTest extends TestBase {
             app.contact().create(contact);
             app.contact().returnToContactPage();
         } else {
-            group = groups.iterator().next();
-            app.contact().returnToContactPage();
+            app.goTo().сontactPage();
         }
     }
     @Test
     public void testContactModification() throws InterruptedException {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData modifiedContact = before.iterator().next();
         File photo = new File("src/test/resources/222.png");
         ContactData contact = new ContactData()
@@ -68,11 +59,10 @@ public class ContactModificationTest extends TestBase {
                 .withWorkMail("22@3.ru")
                 .withOtherMail("111l@2.ru")
                 .withPhoto(photo);
-
-
+        app.goTo().сontactPage();
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo( before.size()));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.without(modifiedContact).withAdded(contact)));
     }

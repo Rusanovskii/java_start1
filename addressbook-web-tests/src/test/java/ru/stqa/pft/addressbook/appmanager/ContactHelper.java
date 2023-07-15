@@ -4,6 +4,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
@@ -33,6 +34,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillForm(ContactData contactData, boolean creation) {
+        attach(name("photo"), contactData.getPhoto());
         type(name("firstname"), contactData.getName());
         type(name("lastname"), contactData.getLastname());
         type(name("nickname"), contactData.getNickname());
@@ -43,17 +45,13 @@ public class ContactHelper extends HelperBase {
         type(name("email"), contactData.getPersonalMail());
         type(name("email2"), contactData.getWorkMail());
         type(name("email3"), contactData.getOtherMail());
-        attach(name("photo"), contactData.getPhoto());
-
 
         if (creation) {
-            try {
-                selectByText(By.name("new_group"), contactData.getGroup());
-
-            } catch (Exception NoSuchElementException) {
-                selectByIndex(By.name("new_group"));
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
             }
-        } else {
+        }else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
     }

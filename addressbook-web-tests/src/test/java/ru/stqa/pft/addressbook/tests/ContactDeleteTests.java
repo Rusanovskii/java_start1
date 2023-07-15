@@ -4,29 +4,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
-import ru.stqa.pft.addressbook.models.GroupData;
-import ru.stqa.pft.addressbook.models.Groups;
+
+import java.io.File;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDeleteTests extends TestBase {
-    private GroupData group;
     private ContactData contact;
     @BeforeMethod
     public void ensurePreconditions(){
-        app.goTo().groupPage();
-        Groups groups = app.group().all();
-        if (groups.size() == 0) {
-            group = (new GroupData().withName("1"));
-            app.group().create(group);
-            app.contact().returnToContactPage();
-        } else {
-            group = groups.iterator().next();
-            app.contact().returnToContactPage();
-        }
-        Contacts contacts = app.contact().all();
-        if (contacts.size() == 0) {
+        if  (app.db().contacts().size() == 0){
+            app.goTo().сontactPage();
+            File photo = new File("src/test/resources/111.png");
             contact = (new ContactData()
                     .withName("Boris")
                     .withLastname("Krasava")
@@ -38,22 +28,21 @@ public class ContactDeleteTests extends TestBase {
                     .withPersonalMail("1@1.ru")
                     .withWorkMail("3@3.ru")
                     .withOtherMail("PoBEdiTel@2.ru")
-                    .withGroup(group.getName()));
+                    .withPhoto(photo));
             app.contact().create(contact);
             app.contact().returnToContactPage();
-        } else {
-            group = groups.iterator().next();
-            app.contact().returnToContactPage();
-        }
+    } else {
+        app.goTo().сontactPage();
+    }
     }
     @Test
     public void testContactDelete() throws Exception {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData deletedContact = before.iterator().next();
         app.contact().delete(deletedContact);
         int index = before.size() - 1;
         assertThat(app.contact().count(), equalTo(index));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(
                 before.without(deletedContact)));
     }
