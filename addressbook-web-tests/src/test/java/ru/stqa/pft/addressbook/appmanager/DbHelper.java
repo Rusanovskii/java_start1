@@ -38,4 +38,14 @@ public class DbHelper {
         session.close();
         return new Contacts(result);
     }
+
+    public GroupData group(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<GroupData> result = session.createQuery("from GroupData where group_id = '"+ id + "'").list();
+        GroupData group = result.stream().findAny().orElse(null);
+        session.getTransaction().commit();
+        session.close();
+        return group;
+    }
 }

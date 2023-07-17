@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.GroupData;
 import ru.stqa.pft.addressbook.models.Groups;
 
@@ -48,6 +49,7 @@ public class GroupHelper extends HelperBase {
 
         wd.findElements(name("selected[]")).get(index).click();
     }
+
     public void selectGroupById(int id) {
 
         wd.findElement(By.cssSelector("input[value= '" + id + "']")).click();
@@ -74,6 +76,7 @@ public class GroupHelper extends HelperBase {
         deleteSelectedGroups();
         returnToGroupPage();
     }
+
     public void delete(GroupData group) {
         selectGroupById(group.getId());
         deleteSelectedGroups();
@@ -100,8 +103,9 @@ public class GroupHelper extends HelperBase {
         }
         return groups;
     }
+
     public Groups all() {
-        if (groupCache != null){
+        if (groupCache != null) {
             return new Groups(groupCache);
         }
         groupCache = new Groups();
@@ -113,9 +117,29 @@ public class GroupHelper extends HelperBase {
         }
         return new Groups(groupCache);
     }
+
     public int count() {
         return wd.findElements(name("selected[]")).size();
     }
+
     private Groups groupCache = null;
+
+    public GroupData groupEmpty (Groups groups, ContactData contact) {
+        for (GroupData group : groups) {
+            if (group.getContacts().stream().allMatch((c) -> c.getId() != contact.getId())) {
+                return group;
+            }
+        }
+        return null;
+    }
+
+    public GroupData groupWithContacts (Groups groups) {
+        for (GroupData group : groups) {
+            if (group.getContacts().size() > 0) {
+                return group;
+            }
+        }
+        return null;
+    }
 }
 

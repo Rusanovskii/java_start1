@@ -58,28 +58,14 @@ public class ContactData {
     @Column(name = "address")
     @Type(type = "text")
     private String address;
-    @Expose
-    @Transient
-    private String group;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(nickname, that.nickname) && Objects.equals(allPhones, that.allPhones) && Objects.equals(homePhone, that.homePhone) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(workPhone, that.workPhone) && Objects.equals(personalMail, that.personalMail) && Objects.equals(allMails, that.allMails) && Objects.equals(workMail, that.workMail) && Objects.equals(otherMail, that.otherMail) && Objects.equals(address, that.address) && Objects.equals(group, that.group) && Objects.equals(groups, that.groups);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, lastname, nickname, allPhones, homePhone, mobilePhone, workPhone, personalMail, allMails, workMail, otherMail, address, group, groups);
-    }
-
     @Column(name = "photo")
     @Type(type = "text")
     private String photo;
-    @Transient
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
     private Set<GroupData> groups = new HashSet<GroupData>();
+
 
     public ContactData withId(int id) {
         this.id = id;
@@ -141,21 +127,9 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withGroup(String group) {
-        this.group = group;
-        return this;
-    }
     public ContactData withPhoto(File photo) {
         this.photo = photo.getPath();
         return this;
-    }
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
     }
 
     public int getId() {
@@ -183,7 +157,6 @@ public class ContactData {
     public String getMobilePhone() {return mobilePhone; }
     public String getWorkPhone() {return workPhone; }
 
-
     public String getAllMails() {
         return allMails;
     }
@@ -197,7 +170,6 @@ public class ContactData {
     public String getAddress() {
         return address;
     }
-    public String getGroup() { return group;}
 
     public File getPhoto() {
         return new File(photo);
@@ -206,4 +178,29 @@ public class ContactData {
         return new Groups(groups);
     }
 
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastname);
+    }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
+    }
 }

@@ -8,10 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
+import ru.stqa.pft.addressbook.models.GroupData;
 
 import java.io.File;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
 import static org.openqa.selenium.By.name;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -132,6 +134,11 @@ public class ContactHelper extends HelperBase {
         contactCache = null;
     }
 
+    private void getGroupByIdFromList(String name, int id) {
+        click(By.name(name));
+        new Select(wd.findElement(By.name(name))).selectByValue(Integer.toString(id));
+    }
+
 
     public ContactData infoFromEditForm(ContactData contact) {
         initContactModification(contact.getId());
@@ -156,7 +163,7 @@ public class ContactHelper extends HelperBase {
         contactCache = new Contacts();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            int id = parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
             String name = element.findElement(By.xpath(".//td[3]")).getText();
             String lastname = element.findElement(By.xpath(".//td[2]")).getText();
             String allPhones = element.findElement(By.xpath(".//td[6]")).getText();
@@ -178,7 +185,23 @@ public class ContactHelper extends HelperBase {
     public int count() {
         return wd.findElements(name("selected[]")).size();
     }
+    public void addToGroup(int id, GroupData group) {
+        Assert.assertNotNull(group);
+        selectContactById(parseInt(Integer.toString(id)));
+        getGroupByIdFromList("to_group", group.getId());
+        click(By.name("add"));
+    }
 
+    public void delFromGroup(int id, GroupData group) {
+        Assert.assertNotNull(group);
+        getGroupByIdFromList("group", group.getId());
+        selectContactById(parseInt(Integer.toString(id)));
+        click(By.name("remove"));
+    }
+
+    private WebElement findElement(By input) {
+        return null;
+    }
 
 }
 
