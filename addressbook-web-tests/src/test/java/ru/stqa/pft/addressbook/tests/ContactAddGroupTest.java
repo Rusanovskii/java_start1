@@ -78,7 +78,7 @@ public class ContactAddGroupTest extends TestBase {
                 .withOtherMail("PoBEdiTel@2.ru")
                 .withPhoto(photo));
         app.contact().create(contact);
-        return contact;
+        return  contact.withId(app.db().contacts().stream().mapToInt((c) -> c.getId()).max().getAsInt());
     }
 }
 
