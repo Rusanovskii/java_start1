@@ -30,6 +30,11 @@ public class NavigationHelper extends HelperBase {
             throw new RuntimeException(e);
         }
     }
+
+    public void сontactPageWithoutGroups() {
+        click(By.linkText("home"));
+        selectByText(By.name("group"),"[none]");
+    }
 }
 
 

@@ -47,7 +47,7 @@ public class ContactDelGroupTest extends TestBase {
                 groupWithoutContacts = app.db().groups().stream().max((g1, g2) -> Integer.max(g1.getId(), g2.getId())).get();
             }
             app.goTo().сontactPage();
-            app.contact().addToGroup(contact.getId(), groupWithoutContacts);
+            app.contact().addGroup(contact.getId(), groupWithoutContacts);
         }
     }
 
@@ -61,7 +61,7 @@ public class ContactDelGroupTest extends TestBase {
             GroupData group = groups.iterator().next();
             contact = app.db().contacts().iterator().next();
             app.goTo().сontactPage();
-            app.contact().addToGroup(contact.getId(), group);
+            app.contact().addGroup(contact.getId(), group);
             before = app.db().group(group.getId());
         } else {
             contact = before.getContacts().iterator().next();

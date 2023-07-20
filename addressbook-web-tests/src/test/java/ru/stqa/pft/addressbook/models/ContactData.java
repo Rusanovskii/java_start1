@@ -14,7 +14,7 @@ import java.util.Set;
 public class ContactData {
     @Id
     @Column(name = "id")
-    private int id = Integer.MAX_VALUE;
+    private int id= Integer.MAX_VALUE;
     @Expose
     @Column(name = "firstname")
     private String name;

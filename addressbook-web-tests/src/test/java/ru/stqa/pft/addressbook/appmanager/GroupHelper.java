@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.models.ContactData;
+import ru.stqa.pft.addressbook.models.Contacts;
 import ru.stqa.pft.addressbook.models.GroupData;
 import ru.stqa.pft.addressbook.models.Groups;
 
@@ -137,6 +138,15 @@ public class GroupHelper extends HelperBase {
         for (GroupData group : groups) {
             if (group.getContacts().size() > 0) {
                 return group;
+            }
+        }
+        return null;
+    }
+
+    public ContactData contactsWithGroups (Contacts contacts) {
+        for (ContactData contact : contacts) {
+            if (contact.getGroups().size() > 0) {
+                return contact;
             }
         }
         return null;
