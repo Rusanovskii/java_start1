@@ -13,6 +13,8 @@ dependencies {
     implementation 'com.hynnet:logback-classic:1.1.3'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
+    implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
+    implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
 }
 
 tasks.register('testContacts', Test) {

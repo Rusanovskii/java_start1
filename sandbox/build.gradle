@@ -36,6 +36,8 @@ dependencies {
     implementation 'com.google.auto.service:auto-service-annotations:1.0.1'
     implementation 'com.google.auto.service:auto-service:1.0.1'
     implementation 'com.github.transbankdevelopers:transbank-sdk-pos-java:3.1.0'
+    implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
+    implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
     testImplementation 'org.testng:testng:7.1.0'
 }
 
