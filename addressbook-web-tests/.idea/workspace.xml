@@ -4,41 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/SoapHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/model/Issue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/model/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/SoapTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/HttpSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/HttpSession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/RegistrationHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/RegistrationHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/TestBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/resources/config_inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/resources/config_inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/resources/config_inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/resources/config_inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/resources/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../soap-sample/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GeoIPService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GeoIPServiceHttpGet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GeoIPServiceHttpPost.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GeoIPServiceSoap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetCountryISO2ByName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetCountryISO2ByNameResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetCountryNameByISO2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetCountryNameByISO2Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetIpLocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetIpLocation20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetIpLocation20Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetIpLocationResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetLocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/GetLocationResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/ObjectFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/classes/com/lavasoft/package-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../soap-sample/out/production/resources/geoipservice.wsdl" beforeDir="false" afterPath="$PROJECT_DIR$/../soap-sample/out/production/resources/geoipservice.wsdl" afterDir="false" />
-    </list>
+    <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
