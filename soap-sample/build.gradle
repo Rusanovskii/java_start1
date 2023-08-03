@@ -9,6 +9,7 @@ dependencies {
     implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
     testImplementation 'org.testng:testng:6.9.10'
     implementation group: 'com.liferay', name: 'com.sun.xml.ws', version: '2.1.7.LIFERAY-PATCHED-1'
+    implementation "com.sun.xml.ws:jaxws-rt:4.0.1"
 }
 
 buildscript{

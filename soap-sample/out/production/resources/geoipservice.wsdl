@@ -388,7 +388,7 @@
         <wsdl:operation name="GetIpLocation">
             <http:operation location="/GetIpLocation" />
             <wsdl:input>
-                <mime:content type="application/x-www-form-urlencoded" />
+                <mime:content type="application/x-www-form-urlencoded" part=""/>
             </wsdl:input>
             <wsdl:output>
                 <mime:mimeXml part="Body" />
@@ -397,7 +397,7 @@
         <wsdl:operation name="GetIpLocation_2_0">
             <http:operation location="/GetIpLocation_2_0" />
             <wsdl:input>
-                <mime:content type="application/x-www-form-urlencoded" />
+                <mime:content type="application/x-www-form-urlencoded" part=""/>
             </wsdl:input>
             <wsdl:output>
                 <mime:mimeXml part="Body" />
@@ -406,7 +406,7 @@
         <wsdl:operation name="GetLocation">
             <http:operation location="/GetLocation" />
             <wsdl:input>
-                <mime:content type="application/x-www-form-urlencoded" />
+                <mime:content type="application/x-www-form-urlencoded"  part=""/>
             </wsdl:input>
             <wsdl:output>
                 <mime:mimeXml part="Body" />
@@ -415,7 +415,7 @@
         <wsdl:operation name="GetCountryISO2ByName">
             <http:operation location="/GetCountryISO2ByName" />
             <wsdl:input>
-                <mime:content type="application/x-www-form-urlencoded" />
+                <mime:content type="application/x-www-form-urlencoded"  part=""/>
             </wsdl:input>
             <wsdl:output>
                 <mime:mimeXml part="Body" />
@@ -424,7 +424,7 @@
         <wsdl:operation name="GetCountryNameByISO2">
             <http:operation location="/GetCountryNameByISO2" />
             <wsdl:input>
-                <mime:content type="application/x-www-form-urlencoded" />
+                <mime:content type="application/x-www-form-urlencoded"  part=""/>
             </wsdl:input>
             <wsdl:output>
                 <mime:mimeXml part="Body" />
