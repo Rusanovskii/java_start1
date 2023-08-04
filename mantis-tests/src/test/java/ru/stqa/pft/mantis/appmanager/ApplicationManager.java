@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import io.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -35,6 +36,7 @@ public class ApplicationManager {
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+        RestAssured.authentication = RestAssured.basic(this.getProperty("web.rest.apiKey"), "");
     }
 
 

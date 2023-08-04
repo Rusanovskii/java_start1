@@ -12,6 +12,7 @@ import java.util.Set;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class SoapTests extends TestBase{
+
     //@Test
     public void testGetProjects() throws MalformedURLException, ServiceException, RemoteException, javax.xml.rpc.ServiceException {
         //skipIfNotFixed(2); - тест для soap
