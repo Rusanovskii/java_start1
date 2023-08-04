@@ -24,6 +24,8 @@ public class ApplicationManager {
     private JamesHelper jamesHelper;
     private ChangeHelper changeHelper;
     private SoapHelper soapHelper;
+    private RestHelper restHelper;
+
 
     public ApplicationManager(String browser) throws IOException {
         this.browser = browser;
@@ -102,4 +104,11 @@ public class ApplicationManager {
         }
         return soapHelper;
     }
+    public RestHelper rest() {
+        if (restHelper == null) {
+            restHelper = new RestHelper(this);
+        }
+        return restHelper;
+    }
 }
+

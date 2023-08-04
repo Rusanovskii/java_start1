@@ -42,12 +42,24 @@ public class TestBase {
             throw new SkipException("Ignored because of issue " + issueId);
         }
     }
+    public void skipIfNotFixedByBugify(int issueId) throws MalformedURLException, ServiceException, RemoteException {
+        if (isIssueOpenByBugify(issueId)) {
+            throw new SkipException("Ignored because of issue " + issueId);
+        }
+    }
 
     public boolean isIssueOpen(int issueId) throws MalformedURLException, ServiceException, RemoteException {
         String status = app.soap().getIssueStatus(issueId);
         if( status.equals("resolved") || status.equals("closed")) {
             return false;
     }
+        return true;
+    }
+    public boolean isIssueOpenByBugify(int issueId) throws MalformedURLException, ServiceException, RemoteException {
+        String status = String.valueOf(app.rest().getIssue(issueId));
+        if( status.equals("resolved") || status.equals("closed")) {
+            return false;
+        }
         return true;
     }
 }

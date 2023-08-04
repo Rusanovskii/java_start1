@@ -14,6 +14,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class SoapTests extends TestBase{
     //@Test
     public void testGetProjects() throws MalformedURLException, ServiceException, RemoteException, javax.xml.rpc.ServiceException {
+        //skipIfNotFixed(2); - тест для soap
         Set<Project> projects = app.soap().getProjects();
         System.out.println(projects.size());
         for (Project project : projects) {
@@ -24,7 +25,9 @@ public class SoapTests extends TestBase{
     @Test
     public void testCreateIssue() throws MalformedURLException, ServiceException, RemoteException, javax.xml.rpc.ServiceException {
 // Перед выполнением теста проверяем статус баг-репорта, чтобы пропускать тест, если он не исправен
-        skipIfNotFixed(2);
+       // skipIfNotFixed(2);
+        // Проверка по rest
+        skipIfNotFixedByBugify(596);
         Set<Project> projects = app.soap().getProjects();
         Issue issue = new Issue().withSummary("Test issue")
                 .withDescription("Test issue description").withProject(projects.iterator().next());

@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="" />
+    <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/RestHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/Issue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/ApplicationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/TestBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/resources/config_inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/resources/config_inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/model/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/model/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/SoapTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/SoapTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mantis-tests/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/src/test/resources/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +35,9 @@
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/../mantis-tests">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/../rest-sample">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/../sandbox">
@@ -154,16 +173,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeoIpServiceTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="soap-sample.test" />
+    <configuration name="RestTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../rest-sample" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.pft.rest.RestTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="RestAssuredTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.soap.*" />
+          <option name="PATTERN" value="ru.stqa.pft.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.soap" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.soap.GeoIpServiceTests" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.rest.RestAssuredTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -171,16 +214,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
+    <configuration name="RestTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
+          <option name="PATTERN" value="ru.stqa.pft.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.LoginTests" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.rest.RestTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -188,34 +231,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
+    <configuration name="RestTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
+          <option name="PATTERN" value="ru.stqa.pft.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.RegistrationTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegistrationTests.testRegistration" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="testRegistration" />
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.rest.RestTests" />
+      <option name="METHOD_NAME" value="testCreateIssue" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -243,19 +269,19 @@
     <list>
       <item itemvalue="Application.ContactDataGenerator" />
       <item itemvalue="Application.GroupDataGenerator" />
-      <item itemvalue="TestNG.GeoIpServiceTests" />
+      <item itemvalue="Gradle.RestTests" />
+      <item itemvalue="TestNG.RestAssuredTests" />
+      <item itemvalue="TestNG.RestTests" />
+      <item itemvalue="TestNG.RestTests.testCreateIssue" />
       <item itemvalue="TestNG.SoapTests" />
-      <item itemvalue="TestNG.RegistrationTests.testRegistration" />
-      <item itemvalue="TestNG.LoginTests" />
-      <item itemvalue="TestNG.RegistrationTests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.SoapTests" />
-        <item itemvalue="TestNG.GeoIpServiceTests" />
-        <item itemvalue="TestNG.RegistrationTests" />
-        <item itemvalue="TestNG.RegistrationTests.testRegistration" />
-        <item itemvalue="TestNG.LoginTests" />
+        <item itemvalue="TestNG.RestTests" />
+        <item itemvalue="TestNG.RestAssuredTests" />
+        <item itemvalue="TestNG.RestTests.testCreateIssue" />
+        <item itemvalue="Gradle.RestTests" />
       </list>
     </recent_temporary>
   </component>
