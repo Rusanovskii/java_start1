@@ -1,4 +1,4 @@
-/*
+
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
@@ -82,6 +82,6 @@ public class ContactAddGroupTest extends TestBase {
         return  contact.withId(app.db().contacts().stream().mapToInt((c) -> c.getId()).max().getAsInt());
     }
 }
-*/
+
 
 
