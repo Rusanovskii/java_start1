@@ -16,7 +16,9 @@ dependencies {
     implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
     implementation 'org.jbpm:jbpm-workitems-webservice:7.74.1.Final'
 }
-
+test {
+    useTestNG()
+}
 tasks.register('testContacts', Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
