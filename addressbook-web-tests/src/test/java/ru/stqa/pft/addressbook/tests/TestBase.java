@@ -34,12 +34,12 @@ public class TestBase {
         }
     }
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeSuite
     public void setUp() throws Exception {
         app.init();
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterSuite
     public void tearDown() throws Exception {
         app.stop();
     }
