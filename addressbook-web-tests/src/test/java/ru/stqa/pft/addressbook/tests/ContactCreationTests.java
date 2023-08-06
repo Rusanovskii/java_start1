@@ -59,7 +59,7 @@ public Iterator<Object[]> validContactsFromCvs() throws IOException {
             return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
         }
     }
-    @Test
+    @Test(dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
         Contacts before = app.db().contacts();
         app.contact().init();
