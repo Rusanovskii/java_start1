@@ -19,7 +19,7 @@ dependencies {
 test {
     useTestNG()
 }
-/*
+
 tasks.register('testContacts', Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
@@ -34,7 +34,7 @@ tasks.register('testContacts', Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }
-*/
+
 tasks.register('testGroups', Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
