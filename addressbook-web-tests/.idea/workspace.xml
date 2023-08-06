@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 1й.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 2й.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 3й.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Настройки для тестов контактов ( меняется название задачи для запуска).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Результаты тестирования групп.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Страница с динамикой проверок успешных и неуспешных.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +137,7 @@
       <recent name="ru.stqa.pft.addressbook.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GroupModificationTest">
+  <component name="RunManager" selected="TestNG.ContactCreationTests">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests" />
@@ -177,7 +169,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactAddGroupTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactCreationTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -186,7 +178,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactAddGroupTest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactCreationTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -265,7 +257,7 @@
     <list>
       <item itemvalue="Application.ContactDataGenerator" />
       <item itemvalue="Application.GroupDataGenerator" />
-      <item itemvalue="TestNG.ContactAddGroupTest" />
+      <item itemvalue="TestNG.ContactCreationTests" />
       <item itemvalue="TestNG.ContactModificationTest" />
       <item itemvalue="TestNG.DbConnectionTest" />
       <item itemvalue="TestNG.GroupModificationTest" />
@@ -273,11 +265,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ContactCreationTests" />
         <item itemvalue="TestNG.GroupModificationTest" />
         <item itemvalue="TestNG.HbConnectionTest" />
         <item itemvalue="TestNG.DbConnectionTest" />
         <item itemvalue="TestNG.ContactModificationTest" />
-        <item itemvalue="TestNG.ContactAddGroupTest" />
       </list>
     </recent_temporary>
   </component>
