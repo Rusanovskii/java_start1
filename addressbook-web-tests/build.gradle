@@ -27,9 +27,6 @@ tasks.register('testContacts', Test) {
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"
     }
-    if (project.hasProperty('platform')) {
-        systemProperty 'platform', "${platform}"
-    }
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
     }
@@ -44,9 +41,6 @@ tasks.register('testGroups', Test) {
     }
     if (project.hasProperty('browser')) {
         systemProperty 'browser', "${browser}"
-    }
-    if (project.hasProperty('platform')) {
-    systemProperty 'platform', "${platform}"
     }
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
