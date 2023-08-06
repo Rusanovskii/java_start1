@@ -58,9 +58,9 @@ public class TestBase {
     public boolean isIssueOpenByBugify(int issueId) throws MalformedURLException, ServiceException, RemoteException {
         String status = app.rest().getIssue(issueId);
         if( status.equals("Open") || status.equals("In Progress")) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
 
