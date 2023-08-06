@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="352e2c44-971a-4ecb-baa1-564997921466" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 1й.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 2й.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Настройки для тестов групп 3й.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Настройки для тестов контактов ( меняется название задачи для запуска).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Результаты тестирования групп.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Страница с динамикой проверок успешных и неуспешных.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
